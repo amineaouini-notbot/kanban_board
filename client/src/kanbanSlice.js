@@ -10,10 +10,13 @@ export const kanbanSlice = createSlice({
                 'In Progress': [],
                 'finished': []
             }
+        },
+        addNote: (state, action) => {
+            state[action.payload.name][action.payload.column].push(action.payload.note)
         }
     }
 })
 
-export const { addBoard } = kanbanSlice.actions;
+export const { addBoard, addNote } = kanbanSlice.actions;
 
 export default kanbanSlice.reducer;
