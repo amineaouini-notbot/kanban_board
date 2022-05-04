@@ -15,10 +15,10 @@ export const kanbanSlice = createSlice({
                     'finished': []
                 }
             })
+        },
+        addNote: (state, action) => {
+            state.boards[action.payload.index].columns[action.payload.column].push(action.payload.note)
         }
-    },
-    addNote: (state, action) => {
-        state.boards[action.payload.index].columns[action.payload.column].push(action.payload.note)
     }
 })
 
