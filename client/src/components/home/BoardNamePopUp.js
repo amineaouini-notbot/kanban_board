@@ -13,7 +13,10 @@ const BNPopUp = (props) => {
                 <button id="close_popup" onClick={props.closePopup}>x</button>
                 <form>
                     <input onChange={handleChange} placeholder="Write you board name"></input>
-                    <button onClick={() => dispatch(addBoard({ name: kanbanName }))}>Create</button>
+                    <button onClick={() => {
+                        dispatch(addBoard({ name: kanbanName }))
+                        props.closePopup()
+                    }}>Create</button>
                 </form>
             </div>
         </div>
