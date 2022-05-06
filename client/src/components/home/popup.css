@@ -32,6 +32,7 @@
     top: 10px;
     border-radius: 100px 100px;
     border-color: #DA7676;
+    border-style: solid;
     color: #DA7676;
     background-color: white;
     font-size: 16px;
@@ -58,5 +59,6 @@
     border-radius: 4px;
     border-style: solid;
     margin-left: 2px;
+    color: #DA7676;
 
 }
