@@ -10,7 +10,7 @@ const Home = () => {
     return (
         <div>
             <h1 id="title">kanban Board</h1>
-            <div id="content">
+            <div id="content" style={boards.length === 2 ? { griTemplateColumns: 'auto auto', marginLeft: '15%' } : {}}>
                 {boards.map((board, i) => <Boards boardName={board.name} id={i} />)}
 
             </div>

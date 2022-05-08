@@ -29,8 +29,10 @@
 }
 
 #disclaimer {
+
     margin-top: 30px;
     margin-left: 15%;
+    padding: 10px;
     width: 70%;
     text-align: left;
     border: 3px solid #3784F4;
