@@ -15,6 +15,15 @@ const Home = () => {
 
             </div>
             <div id="create_board" onClick={togglePopUp}><p>Create a new Board +</p></div>
+            <div id="disclaimer">
+                <div id="disclaimer_content">
+                    <h4>Disclaimer:</h4>
+                    <p>
+                        if you create a board it won’t be saved in a data base.
+                        this website is created by Amine m. aouini a rising front end developer from tunisia looking for internship remotely abroad.</p>
+
+                </div>
+            </div>
             {showPopUp ? <BNPopUp closePopup={togglePopUp} /> : null}
         </div>
     )

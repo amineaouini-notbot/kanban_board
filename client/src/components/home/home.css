@@ -9,3 +9,47 @@
     grid-template-columns: auto auto auto;
     row-gap: 20px;
 }
+
+#create_board {
+    margin: auto;
+    background-color: #C4C4C4;
+    width: 350px;
+    height: 70px;
+    border-radius: 5px;
+    margin-top: 70px;
+
+}
+
+#create_board p {
+    color: white;
+    font-size: 30px;
+    position: relative;
+    top: 17px;
+
+}
+
+#disclaimer {
+    margin-top: 30px;
+    margin-left: 15%;
+    width: 70%;
+    text-align: left;
+    border: 3px solid #3784F4;
+    height: 150px;
+    background-color: rgb(102, 158, 239, 0.6);
+}
+
+#disclaimer #disclaimer_content {
+    height: 150px;
+    position: relative;
+    bottom: 30px;
+}
+
+#disclaimer h4 {
+    font-size: 26px;
+}
+
+#disclaimer p {
+    position: relative;
+    bottom: 20px;
+    font-size: 26px;
+}

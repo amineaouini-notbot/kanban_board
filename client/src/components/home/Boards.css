@@ -1,7 +1,5 @@
 .board {
     background-color: #C4C4C4;
-    color: white;
-    font-size: 30px;
     /* padding-top: 10px;
     padding-bottom: 10px; */
     width: 200px;
@@ -11,6 +9,8 @@
 }
 
 .board p {
+    color: white;
+    font-size: 30px;
     position: relative;
     bottom: 10px;
 }
