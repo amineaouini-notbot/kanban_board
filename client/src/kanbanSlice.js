@@ -9,15 +9,22 @@ export const kanbanSlice = createSlice({
         addBoard: (state, action) => {
             state.boards.push({
                 name: action.payload.name,
-                columns: {
-                    'To Do': [],
-                    'In Progress': [],
-                    'finished': []
-                }
+                columns: [
+                    {
+                        name: 'To Do',
+                        notes: []
+                    }, {
+                        name: 'In Progress',
+                        notes: []
+                    }, {
+                        name: 'finished',
+                        notes: []
+                    }
+                ]
             })
         },
         addNote: (state, action) => {
-            state.boards[action.payload.index].columns[action.payload.column].push(action.payload.note)
+            state.boards[action.payload.BIndex].columns[action.payload.CIndex].push(action.payload.content)
         }
     }
 })
