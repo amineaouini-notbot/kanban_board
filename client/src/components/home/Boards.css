@@ -1,0 +1,16 @@
+.board {
+    background-color: #C4C4C4;
+    color: white;
+    font-size: 30px;
+    /* padding-top: 10px;
+    padding-bottom: 10px; */
+    width: 200px;
+    height: 70px;
+    margin: auto;
+    border-radius: 5px;
+}
+
+.board p {
+    position: relative;
+    bottom: 10px;
+}

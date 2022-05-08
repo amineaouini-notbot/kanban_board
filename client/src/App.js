@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <h1>kanban Board</h1>
+
         <Routes>
           <Route path='/' element={<Home />} />
 

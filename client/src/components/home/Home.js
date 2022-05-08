@@ -9,11 +9,12 @@ const Home = () => {
     let togglePopUp = () => togglePopup(!showPopUp);
     return (
         <div>
+            <h1 id="title">kanban Board</h1>
             <div id="content">
                 {boards.map((board, i) => <Boards boardName={board.name} id={i} />)}
-                <div id="create_board" onClick={togglePopUp}><p>Create a new Board +</p></div>
 
             </div>
+            <div id="create_board" onClick={togglePopUp}><p>Create a new Board +</p></div>
             {showPopUp ? <BNPopUp closePopup={togglePopUp} /> : null}
         </div>
     )
