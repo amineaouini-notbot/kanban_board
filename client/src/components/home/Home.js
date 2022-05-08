@@ -24,6 +24,13 @@ const Home = () => {
 
                 </div>
             </div>
+            <div id="my_info_container">
+                <div id="my_info">
+                    <h4>You want to get in touch ?</h4>
+                    <p>Whatsapp: +21621216971 | LinkedIn: /in/amine-aouini | GitHub: m-amine-aouini</p>
+                </div>
+
+            </div>
             {showPopUp ? <BNPopUp closePopup={togglePopUp} /> : null}
         </div>
     )

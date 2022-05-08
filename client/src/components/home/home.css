@@ -35,7 +35,7 @@
     padding: 10px;
     width: 70%;
     text-align: left;
-    border: 3px solid #3784F4;
+    border: 3px solid #5f9cf8;
     height: 150px;
     background-color: rgb(102, 158, 239, 0.6);
 }
@@ -55,4 +55,24 @@
     position: relative;
     bottom: 20px;
     font-size: 26px;
+}
+
+#my_info_container {
+    width: 70%;
+    border: 3px solid #5f9cf8;
+    background-color: rgb(102, 158, 239, 0.6);
+    margin-left: 15%;
+    margin-top: 30px;
+    padding: 10px;
+    font-size: 24px;
+    height: 110px;
+}
+
+#my_info_container #my_info {
+    position: relative;
+    bottom: 20px;
+}
+
+#my_info h4 {
+    font-weight: normal;
 }
