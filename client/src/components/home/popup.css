@@ -51,8 +51,10 @@
     border-style: solid;
 }
 
-.popup_inner form button {
-    padding-top: 5px;
+.popup_inner form #create {
+    font-size: 15px;
+    text-decoration: none;
+    padding-top: 3px;
     padding-bottom: 5px;
     background-color: white;
     border-color: #5f9cf8;
