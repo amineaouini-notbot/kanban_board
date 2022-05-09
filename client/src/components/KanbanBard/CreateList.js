@@ -7,7 +7,7 @@ const CreateList = (props) => {
     const dispatch = useDispatch();
     const [listName, setListName] = useState("");
     const [onCreate, setOnCreate] = useState(false);
-    let handleClick = () => {
+    let handleCreate = () => {
         if (listName.length > 0) {
             dispatch(addList({ BIndex: id, name: listName }))
             setOnCreate(false)
@@ -24,9 +24,9 @@ const CreateList = (props) => {
         return () => { document.removeEventListener('mousedown', handler) }
     })
     return !onCreate ? (<div onClick={() => setOnCreate(true)}>Add List +</div>) :
-        <div>
+        <div ref={addListRef}>
             <input onChange={(e) => setListName(e.target.value)}></input>
-            <button onClick={handleClick}>Add +</button>
+            <button onClick={handleCreate}>Add +</button>
         </div>
 }
 
