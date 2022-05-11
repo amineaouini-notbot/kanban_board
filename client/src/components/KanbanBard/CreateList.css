@@ -5,6 +5,7 @@
     height: 35px;
     background-color: hsla(0, 1%, 33%, 0.16);
     vertical-align: middle;
+    border-radius: 5px;
 }
 
 #add_list span {
@@ -14,6 +15,34 @@
 }
 
 #on_add_list {
+    border-radius: 5px;
     width: 260px;
+    background-color: rgb(255, 255, 255);
+    height: 75px;
+}
 
+#on_add_list input {
+    border: none;
+    margin-top: 5px;
+    width: 240px;
+    height: 25px;
+
+    /* border-radius: px; */
+    border-color: #5f9cf8;
+}
+
+#on_add_list button {
+    border: none;
+    border-radius: 5px;
+    background-color: #C4C4C4;
+    height: 30px;
+}
+
+#on_add_list span {
+    position: relative;
+    user-select: none;
+    color: #555555;
+    font-size: 26px;
+    left: 10px;
+    top: 3px;
 }

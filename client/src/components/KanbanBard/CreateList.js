@@ -27,8 +27,11 @@ const CreateList = (props) => {
     })
     return !onCreate ? (<div id="add_list" onClick={() => setOnCreate(true)}><span>+ Add a list</span></div>) :
         <div id="on_add_list" ref={addListRef}>
-            <input onChange={(e) => setListName(e.target.value)}></input>
-            <button onClick={handleCreate}>Add list</button>
+            <input placeholder="Enter list name..." onChange={(e) => setListName(e.target.value)}></input>
+            <div>
+                <button onClick={handleCreate}>Add list</button>
+                <span>x</span>
+            </div>
         </div>
 }
 
