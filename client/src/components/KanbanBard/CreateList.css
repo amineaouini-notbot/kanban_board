@@ -1,0 +1,19 @@
+#add_list {
+    user-select: none;
+    text-align: left;
+    width: 260px;
+    height: 35px;
+    background-color: hsla(0, 1%, 33%, 0.16);
+    vertical-align: middle;
+}
+
+#add_list span {
+    position: relative;
+    top: 9px;
+    color: white;
+}
+
+#on_add_list {
+    width: 260px;
+
+}
