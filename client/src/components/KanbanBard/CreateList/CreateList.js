@@ -25,17 +25,22 @@ const CreateList = (props) => {
         document.addEventListener('mousedown', handler)
         return () => { document.removeEventListener('mousedown', handler) }
     })
-    return !onCreate ? (<div id="add_list" onClick={() => {
-        setOnCreate(true)
-        setListName("")
-    }}><span>+ Add a list</span></div>) :
-        <div id="on_add_list" ref={addListRef}>
-            <input placeholder="Enter list name..." onChange={(e) => setListName(e.target.value)}></input>
-            <div id="actions">
-                <button onClick={handleCreate}>Add list</button>
-                <span onClick={() => setOnCreate(false)}>x</span>
-            </div>
-        </div>
+    return (<div id="add_list_container">
+        {!onCreate ? (<div id="add_list" onClick={() => {
+            setOnCreate(true)
+            setListName("")
+        }}><span>+ Add a list</span></div>) :
+            <div id="on_add_list" ref={addListRef}>
+                <input placeholder="Enter list name..." onChange={(e) => setListName(e.target.value)}></input>
+                <div id="actions">
+                    <button onClick={handleCreate}>Add list</button>
+                    <span onClick={() => setOnCreate(false)}>x</span>
+                </div>
+            </div>}
+
+
+
+    </div>)
 }
 
 export default CreateList;

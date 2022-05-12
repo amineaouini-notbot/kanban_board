@@ -4,7 +4,7 @@ import './List.css';
 const List = (props) => {
     const { BIndex, LIndex, name } = props;
     return (
-        <div className="list">
+        <div className="lists">
             <div>{name}</div>
         </div>
     )

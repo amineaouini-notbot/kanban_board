@@ -6,7 +6,6 @@
     background-color: hsla(0, 1%, 33%, 0.16);
     vertical-align: middle;
     border-radius: 5px;
-    margin-left: 30px;
 }
 
 #add_list span {
@@ -20,7 +19,6 @@
     width: 260px;
     background-color: white;
     height: 75px;
-    margin-left: 30px;
 }
 
 #on_add_list input {
