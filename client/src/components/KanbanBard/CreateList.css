@@ -31,6 +31,10 @@
     border-color: #5f9cf8;
 }
 
+#actions {
+    float: left;
+}
+
 #on_add_list button {
     border: none;
     border-radius: 5px;
