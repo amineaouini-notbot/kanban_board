@@ -1,14 +1,8 @@
 #content {
     display: grid;
-    grid-column: auto auto;
+    float: left;
 }
 
-#content #add_list_container {
-    grid-row-start: 1;
-    grid-row-end: 2;
-    grid-column-start: 2;
-    grid-column-end: 3;
-}
 
 #lists {
     display: flex;
