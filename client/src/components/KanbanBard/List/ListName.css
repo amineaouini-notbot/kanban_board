@@ -1,0 +1,10 @@
+.lists_names {
+    border-bottom: 1px solid black;
+    padding-bottom: 15px
+}
+
+.lists_names span {
+    position: relative;
+    font-size: 30px;
+    top: 7px;
+}

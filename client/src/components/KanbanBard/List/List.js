@@ -1,11 +1,11 @@
 import React from "react";
 import './List.css';
-
+import ListName from "./ListName";
 const List = (props) => {
-    const { BIndex, LIndex, name } = props;
+    const { BIndex, LIndex } = props;
     return (
         <div className="lists">
-            <div>{name}</div>
+            <ListName BIndex={BIndex} LIndex={LIndex} />
         </div>
     )
 }

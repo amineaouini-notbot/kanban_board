@@ -16,7 +16,7 @@ const KanbanBoard = () => {
             </div>
             <div id="content">
                 <div id="lists">
-                    {lists.map((list, LIndex) => <List name={list.name} LIndex={LIndex} BIndex={id} />)}
+                    {lists.map((list, LIndex) => <List LIndex={LIndex} BIndex={id} />)}
 
                 </div>
 
