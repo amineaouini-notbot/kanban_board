@@ -11,12 +11,15 @@ const KanbanBoard = () => {
     let { name, lists } = board;
     return (
         <div>
-            <h2>{name}</h2>
+            <div id="board_title">
+                <h2>{name}</h2>
+            </div>
             <div id="content">
                 <div id="lists">
-
                     {lists.map((list, LIndex) => <List name={list.name} LIndex={LIndex} BIndex={id} />)}
+
                 </div>
+
                 <CreateList />
             </div>
         </div>
