@@ -1,0 +1,25 @@
+.add_note_container {
+    margin-top: 5px;
+    margin-left: 4px;
+}
+
+.add_note {
+
+    text-align: left;
+    color: grey;
+    font-weight: 500;
+    width: 252px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.add_note span {
+    position: relative;
+    top: 2px;
+    font-size: 24px;
+}
+
+.add_note:hover {
+
+    background-color: rgb(226, 223, 223);
+}
