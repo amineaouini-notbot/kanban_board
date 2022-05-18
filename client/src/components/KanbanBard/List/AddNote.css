@@ -23,3 +23,12 @@
 
     background-color: rgb(226, 223, 223);
 }
+
+.on_add_note {
+    width: 252px;
+}
+
+.on_add_note textarea {
+    resize: none;
+    width: 245px;
+}
