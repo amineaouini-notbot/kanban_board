@@ -4,7 +4,6 @@
 }
 
 .add_note {
-
     text-align: left;
     color: grey;
     font-weight: 500;
@@ -20,7 +19,6 @@
 }
 
 .add_note:hover {
-
     background-color: rgb(226, 223, 223);
 }
 

@@ -6,13 +6,13 @@ import './AddNote.css';
 const AddNote = (props) => {
     const dispatch = useDispatch();
     const [onAdd, setOnAdd] = useState(false);
-    const [note, setNote] = useState('')
+    const [content, setNote] = useState('')
     const { BIndex, LIndex } = props;
     const close = () => setOnAdd(false);
 
     let handleOnAdd = () => {
-        if (note.length > 0) {
-            dispatch(addNote({ BIndex, LIndex, content: note }));
+        if (content.length > 0) {
+            dispatch(addNote({ BIndex, LIndex, content }));
             close();
         }
     };
