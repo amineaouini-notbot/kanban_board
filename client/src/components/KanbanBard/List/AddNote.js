@@ -13,10 +13,11 @@ const AddNote = () => {
         <div className='add_note_container'>
             {!onAdd ? <div className='add_note' onClick={handelOnAdd}><div className='add_note_text'><span>+</span> Add a Note</div></div> :
                 <div className='on_add_note'>
+                    <textarea onChange={e => setNote(e.target.value)}></textarea>
                     <div className='add_note_actions'>
 
-                        <textarea onChange={e => setNote(e.target.value)}></textarea>
-                        <span>Add</span><span onClick={handelOnAdd}>x</span>
+                        <button>Add note</button>
+                        <span onClick={handelOnAdd}>x</span>
                     </div>
                 </div>}
         </div>
