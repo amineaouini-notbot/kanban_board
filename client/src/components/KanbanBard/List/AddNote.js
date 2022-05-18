@@ -8,9 +8,13 @@ const AddNote = (props) => {
     const [onAdd, setOnAdd] = useState(false);
     const [note, setNote] = useState('')
     const { BIndex, LIndex } = props;
+    const close = () => setOnAdd(false);
+
     let handleOnAdd = () => {
-        dispatch(addNote({ BIndex, LIndex, note }));
-        setOnAdd(false)
+        if (note.length > 0) {
+            dispatch(addNote({ BIndex, LIndex, content: note }));
+            close();
+        }
     };
 
     return (
@@ -21,7 +25,7 @@ const AddNote = (props) => {
                     <div className='add_note_actions'>
 
                         <button onClick={handleOnAdd}>Add note</button>
-                        <span onClick={() => setOnAdd(false)}>x</span>
+                        <span onClick={close}>x</span>
                     </div>
                 </div>}
         </div>

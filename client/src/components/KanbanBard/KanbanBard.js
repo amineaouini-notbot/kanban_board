@@ -7,6 +7,7 @@ import './KanbanBoard.css';
 const KanbanBoard = () => {
     let { id } = useParams();
 
+    // @ts-ignore
     let board = useSelector(state => state.kanban.boards[id]);
     let { name, lists } = board;
     return (
@@ -16,7 +17,7 @@ const KanbanBoard = () => {
             </div>
             <div id="content">
                 <div id="lists">
-                    {lists.map((list, LIndex) => <List LIndex={LIndex} BIndex={id} />)}
+                    {lists.map((list, LIndex) => <List key={LIndex} LIndex={LIndex} BIndex={id} />)}
 
                 </div>
 
