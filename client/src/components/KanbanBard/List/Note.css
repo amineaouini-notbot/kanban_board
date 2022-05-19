@@ -1,6 +1,9 @@
-.note {
-    width: 252px;
-    margin-left: 4px;
-    margin-top: 4px;
+.note_container {
+    width: 254px;
+    margin-left: 3px;
+    margin-top: 15px;
     text-align: left;
+    -webkit-box-shadow: 0 4px 6px -6px #222;
+    -moz-box-shadow: 0 4px 6px -6px #222;
+    box-shadow: 0 4px 6px -6px #222;
 }
