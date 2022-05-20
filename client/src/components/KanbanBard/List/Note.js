@@ -6,12 +6,11 @@ const Note = (props) => {
     const { NIndex, LIndex, BIndex } = props;
     // @ts-ignore
     const note = useSelector(state => state.kanban.boards[BIndex].lists[LIndex].content[NIndex]);
-    const [content, setContent] = useState(note);
 
     return (
         <div className='note_container'>
             <span className='note'>
-                {content}
+                {note}
             </span>
         </div>
     )
