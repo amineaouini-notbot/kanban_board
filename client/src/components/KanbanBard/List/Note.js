@@ -10,7 +10,7 @@ const Note = (props) => {
 
     return (
         <div className='note_container'>
-            <span>
+            <span className='note'>
                 {content}
             </span>
         </div>
