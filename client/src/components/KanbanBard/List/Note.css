@@ -1,5 +1,6 @@
 .note_container {
     width: 254px;
+    padding-bottom: 5px;
     margin-left: 3px;
     margin-top: 15px;
     text-align: left;
@@ -9,5 +10,6 @@
 }
 
 .note {
+    margin-left: 5px;
     word-break: break-all;
 }
