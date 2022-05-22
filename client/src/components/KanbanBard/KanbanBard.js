@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import CreateList from "./CreateList/CreateList";
 import List from "./List/List";
 import './KanbanBoard.css';
-import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 const KanbanBoard = () => {
     let { id } = useParams();
@@ -19,14 +19,18 @@ const KanbanBoard = () => {
             </div>
             <div id="content">
                 <DragDropContext>
-                    <Droppable>
-                        {(provided) => {
+                    <Droppable droppableId="droppable_lists">
+                        {(provided) => (
 
                             <div id="lists" {...provided.droppableProps} ref={provided.innerRef}>
-                                {lists.map((list, LIndex) => <List key={LIndex} LIndex={LIndex} BIndex={id} />)}
+                                {lists.map((list, LIndex) => (
+
+                                    <List key={LIndex} LIndex={LIndex} BIndex={id} />
+
+                                ))}
 
                             </div>
-                        }}
+                        )}
                     </Droppable>
                     <CreateList />
                 </DragDropContext>
