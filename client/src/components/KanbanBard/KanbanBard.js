@@ -29,6 +29,7 @@ const KanbanBoard = () => {
 
                                 ))}
 
+                                {provided.placeholder}
                             </div>
                         )}
                     </Droppable>
