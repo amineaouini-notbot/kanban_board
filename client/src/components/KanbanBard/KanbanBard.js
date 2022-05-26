@@ -1,20 +1,26 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import CreateList from "./CreateList/CreateList";
 import List from "./List/List";
 import './KanbanBoard.css';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import { onDragEndList } from "../../kanbanSlice";
 const KanbanBoard = () => {
     let { id } = useParams();
-
+    const dispatch = useDispatch();
     let board = useSelector(state => state.kanban.boards[id]);
     let { name, lists } = board;
     const handleOnDrag = result => {
         console.log(result)
         if (!result.destination) return
+        let payload = {
+            BIndex: id,
+            DIndex: result.destination.index,
+            SIndex: result.source.index
+        }
+        dispatch(onDragEndList(payload))
     }
-    console.log(lists)
 
 
     return (
