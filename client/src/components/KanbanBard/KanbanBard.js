@@ -4,10 +4,7 @@ import { useSelector } from "react-redux";
 import CreateList from "./CreateList/CreateList";
 import List from "./List/List";
 import './KanbanBoard.css';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import ListName from "./List/ListName";
-import Note from "./List/Note";
-import AddNote from "./List/AddNote";
+import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 const KanbanBoard = () => {
     let { id } = useParams();
 
