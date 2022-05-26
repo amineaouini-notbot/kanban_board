@@ -7,19 +7,26 @@ import Note from "./Note";
 import { Draggable } from "react-beautiful-dnd";
 const List = (props) => {
     const { BIndex, LIndex } = props;
-    // @ts-ignore
     const list = useSelector(state => state.kanban.boards[BIndex].lists[LIndex].content);
-    return (
-        <Draggable draggableId={BIndex + '_' + LIndex}>
-            {provider => (
 
-                <div className="lists" {...provider.draggableProps} {...provider.dragHandleProps} ref={provider.innerRef}>
-                    <ListName BIndex={BIndex} LIndex={LIndex} />
-                    {list.map((note, NIndex) => <Note key={NIndex} BIndex={BIndex} LIndex={LIndex} NIndex={NIndex} />)}
-                    <AddNote BIndex={BIndex} LIndex={LIndex} />
-                </div>
-            )}
+    return (
+        <Draggable key={LIndex} draggableId={'list_' + LIndex} index={LIndex}>
+            {(provided) => {
+
+                return (
+
+
+                    <div className="lists" {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+                        <ListName BIndex={BIndex} LIndex={LIndex} />
+                        {list.map((note, NIndex) => <Note key={NIndex} BIndex={BIndex} LIndex={LIndex} NIndex={NIndex} />)}
+                        <AddNote BIndex={BIndex} LIndex={LIndex} />
+
+                    </div>
+
+                )
+            }}
         </Draggable>
+
     )
 }
 
