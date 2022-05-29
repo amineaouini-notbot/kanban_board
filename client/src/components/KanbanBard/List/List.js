@@ -4,7 +4,7 @@ import ListName from "./ListName";
 import AddNote from "./AddNote";
 import { useSelector } from "react-redux";
 import Note from "./Note";
-import { Draggable } from "react-beautiful-dnd";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 const List = (props) => {
     const { BIndex, LIndex } = props;
     const list = useSelector(state => state.kanban.boards[BIndex].lists[LIndex].content);
@@ -24,7 +24,21 @@ const List = (props) => {
 
                     <div className="lists" {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef} style={getListStyle(snapshot.isDragging, provided.draggableProps.style)}>
                         <ListName BIndex={BIndex} LIndex={LIndex} />
-                        {list.map((note, NIndex) => <Note key={NIndex} BIndex={BIndex} LIndex={LIndex} NIndex={NIndex} />)}
+                        <DragDropContext>
+                            <Droppable droppableId={'list_' + LIndex}>
+                                {provided => {
+                                    return (
+                                        <div ref={provided.innerRef} {...provided.droppableProps}>
+
+                                            {list.map((note, NIndex) => <Note key={NIndex} BIndex={BIndex} LIndex={LIndex} NIndex={NIndex} />)}
+                                            {provided.placeholder}
+                                        </div>
+                                    )
+
+                                }}
+
+                            </Droppable>
+                        </DragDropContext>
                         <AddNote BIndex={BIndex} LIndex={LIndex} />
 
                     </div>
