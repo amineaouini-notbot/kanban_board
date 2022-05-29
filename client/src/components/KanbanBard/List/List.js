@@ -9,13 +9,14 @@ const List = (props) => {
     const { BIndex, LIndex } = props;
     const list = useSelector(state => state.kanban.boards[BIndex].lists[LIndex].content);
     const getListStyle = (isDragging, draggableStyle) => {
-        return {
-            cursor: isDragging ? "all-scroll" : "pointer",
-            ...draggableStyle
+        return { // change curser on drag
+            cursor: isDragging ? "move" : "pointer",
+            ...draggableStyle,
+            ...(isDragging && { pointerEvents: 'auto' }) // opt out pointer-events on dragging
         }
     }
     return (
-        <Draggable key={LIndex} draggableId={'list_' + LIndex} index={LIndex} >
+        <Draggable key={LIndex} draggableId={LIndex.toString()} index={LIndex} >
             {(provided, snapshot) => {
 
                 return (
