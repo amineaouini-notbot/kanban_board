@@ -29,13 +29,16 @@ const KanbanBoard = () => {
             </div>
             <div id="content">
                 <DragDropContext onDragEnd={handleOnDrag}>
-                    <Droppable droppableId="droppable_lists" direction="horizantal">
+                    <Droppable droppableId="droppable_lists" direction="horizantal" type="LIST">
                         {(provided, snapshotDrop) => {
                             return (
                                 <div id="lists" {...provided.droppableProps} ref={provided.innerRef}>
-                                    {lists.map((list, LIndex) => <List LIndex={LIndex} BIndex={id} />)}
+                                    <DragDropContext onDragEnd={result => console.log(result)}>
 
-                                    {provided.placeholder}
+                                        {lists.map((list, LIndex) => <List LIndex={LIndex} BIndex={id} />)}
+
+                                        {provided.placeholder}
+                                    </DragDropContext>
                                 </div>
                             )
                         }}
