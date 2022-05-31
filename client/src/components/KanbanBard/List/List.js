@@ -15,8 +15,11 @@ const List = (props) => {
             ...(isDragging && { pointerEvents: 'auto' }) // opt out pointer-events on dragging
         }
     }
+    const handleNoteDrag = result => {
+        console.log(result)
+    }
     return (
-        <Draggable key={LIndex} draggableId={LIndex.toString()} index={LIndex} >
+        <Draggable key={LIndex} draggableId={LIndex.toString()} index={LIndex} isDragDisabled={true}>
             {(provided, snapshot) => {
 
                 return (
@@ -24,23 +27,26 @@ const List = (props) => {
 
                     <div className="lists" {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef} style={getListStyle(snapshot.isDragging, provided.draggableProps.style)}>
                         <ListName BIndex={BIndex} LIndex={LIndex} />
-                        <DragDropContext>
-                            <Droppable droppableId={'list_' + LIndex}>
-                                {provided => {
-                                    return (
-                                        <div ref={provided.innerRef} {...provided.droppableProps}>
+                        <div >
 
-                                            {list.map((note, NIndex) => <Note key={NIndex} BIndex={BIndex} LIndex={LIndex} NIndex={NIndex} />)}
-                                            {provided.placeholder}
-                                        </div>
-                                    )
+                            <DragDropContext onDragEnd={handleNoteDrag}>
+                                <Droppable droppableId={'list_' + LIndex}>
+                                    {provided => {
+                                        return (
+                                            <div ref={provided.innerRef} {...provided.droppableProps}>
 
-                                }}
+                                                {list.map((note, NIndex) => <Note key={NIndex} BIndex={BIndex} LIndex={LIndex} NIndex={NIndex} />)}
+                                                {provided.placeholder}
+                                            </div>
+                                        )
 
-                            </Droppable>
-                        </DragDropContext>
-                        <AddNote BIndex={BIndex} LIndex={LIndex} />
+                                    }}
 
+                                </Droppable>
+                            </DragDropContext>
+                            <AddNote BIndex={BIndex} LIndex={LIndex} />
+
+                        </div>
                     </div>
 
                 )

@@ -9,16 +9,18 @@ const Note = (props) => {
     const note = useSelector(state => state.kanban.boards[BIndex].lists[LIndex].content[NIndex]);
 
     return (
-        <Draggable>
-            {provider => (
+        <Draggable draggableId={'note_' + NIndex + '_of_' + LIndex} index={NIndex} key={NIndex}>
+            {
+                provider => (
 
-                <div className='note_container' ref={provider.innerRef}>
-                    <span className='note'>
-                        {note}
-                    </span>
-                </div>
-            )}
-        </Draggable>
+                    <div {...provider.dragHandleProps} {...provider.draggableProps} className='note_container' ref={provider.innerRef} >
+                        <span className='note'>
+                            {note}
+                        </span>
+                    </div>
+                )
+            }
+        </Draggable >
     )
 }
 

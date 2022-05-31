@@ -12,7 +12,6 @@ const KanbanBoard = () => {
     let board = useSelector(state => state.kanban.boards[id]);
     let { name, lists } = board;
     const handleOnDrag = result => {
-        console.log(result)
         if (!result.destination) return
         let payload = {
             BIndex: id,
