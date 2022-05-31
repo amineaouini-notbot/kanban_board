@@ -5,7 +5,7 @@ import CreateList from "./CreateList/CreateList";
 import List from "./List/List";
 import './KanbanBoard.css';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import { onDragEndList } from "../../kanbanSlice";
+import { onDragEndList, reorderedList } from "../../kanbanSlice";
 const KanbanBoard = () => {
     let { id } = useParams();
     const dispatch = useDispatch();
@@ -21,7 +21,18 @@ const KanbanBoard = () => {
         dispatch(onDragEndList(payload))
     }
 
-
+    const handleNoteDrag = result => {
+        console.log(result)
+        if (!result.destination) return
+        let payload = {
+            BIndex: id,
+            s_id: result.source.droppableId,
+            d_id: result.destination.droppableId,
+            s_index: result.source.index,
+            d_index: result.destination.index
+        }
+        dispatch(reorderedList(payload))
+    }
     return (
         <div>
             <div id="board_title">
@@ -33,7 +44,7 @@ const KanbanBoard = () => {
                         {(provided, snapshotDrop) => {
                             return (
                                 <div id="lists" {...provided.droppableProps} ref={provided.innerRef}>
-                                    <DragDropContext onDragEnd={result => console.log(result)}>
+                                    <DragDropContext onDragEnd={handleNoteDrag}>
 
                                         {lists.map((list, LIndex) => <List LIndex={LIndex} BIndex={id} />)}
 
