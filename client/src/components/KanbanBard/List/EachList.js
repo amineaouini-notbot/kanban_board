@@ -1,11 +1,11 @@
 import React from "react";
-import './List.css';
+import './EachList.css';
 import ListName from "./ListName";
 import AddNote from "./AddNote";
 import { useSelector } from "react-redux";
 import Note from "./Note";
 import { Droppable, Draggable } from "react-beautiful-dnd";
-const List = (props) => {
+const EachList = (props) => {
     const { BIndex, LIndex } = props;
     const list = useSelector(state => state.kanban.boards[BIndex].lists[LIndex].content);
     const getListStyle = (isDragging, draggableStyle) => {
@@ -51,4 +51,4 @@ const List = (props) => {
     )
 }
 
-export default List;
+export default EachList;
