@@ -23,8 +23,8 @@ const EachList = (props) => {
                 return (
 
 
-                    <div className="lists" {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef} style={getListStyle(snapshot.isDragging, provided.draggableProps.style)}>
-                        <ListName BIndex={BIndex} LIndex={LIndex} />
+                    <div className="lists" {...provided.draggableProps} ref={provided.innerRef} style={getListStyle(snapshot.isDragging, provided.draggableProps.style)}>
+                        <ListName handleDrag={provided.dragHandleProps} BIndex={BIndex} LIndex={LIndex} />
                         <Droppable droppableId={LIndex.toString()} type='NOTE'>
                             {(provided, snapshot) => {
                                 return (

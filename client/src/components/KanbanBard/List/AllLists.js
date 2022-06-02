@@ -38,11 +38,11 @@ const AllLists = (props) => {
                         return (
                             <div id="lists" {...provided.droppableProps} ref={provided.innerRef}>
 
-                                <DragDropContext onDragEnd={handleNoteDrag}>
+                                {/* <DragDropContext onDragEnd={handleNoteDrag}> */}
 
-                                    {lists.map((list, LIndex) => <EachList LIndex={LIndex} BIndex={BIndex} />)}
+                                {lists.map((list, LIndex) => <EachList LIndex={LIndex} BIndex={BIndex} />)}
 
-                                </DragDropContext>
+                                {/* </DragDropContext> */}
                                 {provided.placeholder}
                             </div>
                         )
