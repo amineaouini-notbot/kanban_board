@@ -3,14 +3,14 @@
     grid-row-end: 3;
     grid-column-start: 2;
     grid-column-end: 3;
-    width: 260px;
-    margin-left: 30px;
+    width: 17vw;
+    margin-left: 2.5vw;
 }
 
 #add_list {
     user-select: none;
     text-align: left;
-    width: 260px;
+    width: 17vw;
     height: 35px;
     background-color: hsla(0, 1%, 33%, 0.16);
     vertical-align: middle;
@@ -29,7 +29,7 @@
 
 #on_add_list {
     border-radius: 5px;
-    width: 260px;
+    width: 17vw;
     background-color: white;
     height: 75px;
 }
