@@ -4,11 +4,13 @@ import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import { useSelector, useDispatch } from "react-redux";
 import { reorderedNotes, reorderLists } from "../../../kanbanSlice";
 import CreateList from "../CreateList/CreateList";
+import './AllLists.css';
+
 const AllLists = (props) => {
     const { BIndex } = props;
     const dispatch = useDispatch();
     let lists = useSelector(state => state.kanban.boards[BIndex].lists)
-    const handleNoteDrag = result => {
+    const handleOnDrag = result => {
         if (!result.destination) return
         if (result.source.droppableId === 'all_lists') {
 
@@ -31,12 +33,9 @@ const AllLists = (props) => {
         }
     }
 
-    const handleOnDrag = result => {
-        if (!result.destination) return
-    }
     return (
         <div id="content">
-            <DragDropContext onDragEnd={handleNoteDrag}>
+            <DragDropContext onDragEnd={handleOnDrag}>
                 <Droppable droppableId="all_lists" direction="horizantal" type="LIST">
                     {(provided) => {
                         return (

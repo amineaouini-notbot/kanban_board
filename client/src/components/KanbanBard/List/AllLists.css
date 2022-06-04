@@ -1,0 +1,10 @@
+#content {
+    position: fixed;
+    display: grid;
+    float: left;
+    top: 12%;
+}
+
+#lists {
+    display: flex;
+}

@@ -8,14 +8,3 @@
 #board_title h2 {
     font-size: 36px;
 }
-
-#content {
-    position: fixed;
-    display: grid;
-    float: left;
-    top: 12%;
-}
-
-#lists {
-    display: flex;
-}
