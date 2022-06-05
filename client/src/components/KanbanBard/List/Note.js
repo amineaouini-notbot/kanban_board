@@ -5,6 +5,7 @@ import { Draggable } from 'react-beautiful-dnd';
 
 const Note = (props) => {
     const { NIndex, LIndex, BIndex } = props;
+    const [onEdit, setOnEdit] = useState(false);
     // @ts-ignore
     const note = useSelector(state => state.kanban.boards[BIndex].lists[LIndex].content[NIndex]);
 
