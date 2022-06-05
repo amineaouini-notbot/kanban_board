@@ -7,7 +7,7 @@
     text-align: left;
     color: grey;
     font-weight: 500;
-    width: 252px;
+    width: 16.5vw;
     height: 30px;
     border-radius: 5px;
 }
@@ -23,19 +23,20 @@
 }
 
 .on_add_note {
-    width: 252px;
+    width: 16.5vw;
 
 }
 
 .on_add_note textarea {
     resize: none;
-    width: 245px;
+    width: 16vw;
     height: 52px;
 }
 
 .add_note_actions {
     position: relative;
     bottom: 5px;
+    left: 2px;
     float: left;
 }
 
