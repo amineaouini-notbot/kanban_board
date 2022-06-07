@@ -16,24 +16,25 @@ const Note = (props) => {
                 provider => (
 
                     <div {...provider.dragHandleProps} {...provider.draggableProps} ref={provider.innerRef} >
-                        {
-                            !onEdit ?
-                                <div className='note_container'>
 
-                                    <span className='note' >
-                                        {note}
-                                    </span>
-                                    <FiEdit2 onClick={() => setOnEdit(!onEdit)}></FiEdit2>
+                        <div className='note_container'>
 
-                                </div> :
-                                <div className='on_edit_container'>
-                                    <div className='on_edit_note_content'>
-                                        <textarea onChange={changeValue} value={note}></textarea>
+                            <span className='note' >
+                                {note}
+                            </span>
+                            <FiEdit2 onClick={() => setOnEdit(!onEdit)}></FiEdit2>
+
+                        </div>
+                        {onEdit ?
+                            <div className='on_edit_container'>
+                                <div className='on_edit_note_content'>
+                                    <textarea onChange={changeValue} value={note}></textarea>
+                                    <div className='on_edit_note_actions'>
+
                                         <span onClick={() => setOnEdit(false)}>X</span>
                                     </div>
                                 </div>
-                        }
-
+                            </div> : <div className='dont_display'></div>}
 
                     </div>
                 )

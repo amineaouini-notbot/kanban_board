@@ -1,4 +1,6 @@
 .note_container {
+    display: grid;
+    grid-template-columns: 90% 3%;
     width: 16.5vw;
     padding-bottom: 5px;
     margin-left: 3px;
@@ -25,4 +27,27 @@
     bottom: 0;
     margin: auto;
     background-color: rgba(0, 0, 0, 0.5);
+}
+
+.on_edit_note_content {
+    background-color: white;
+    width: 40%;
+    position: absolute;
+    left: 30%;
+    right: 30%;
+    top: 200px;
+    min-height: 100px;
+    border: 2px solid #5f9cf8;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto 30px;
+}
+
+.on_edit_note_actions span {
+    float: left;
+}
+
+.dont_display {
+    display: none;
 }
