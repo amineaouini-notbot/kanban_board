@@ -44,9 +44,18 @@
     grid-template-rows: auto 30px;
 }
 
-.on_edit_note_actions span {
-    float: left;
+.on_edit_note_content textarea {
+    width: 37vw;
+    margin-left: 1.4vw;
+    margin-top: 8px;
+    border-color: #5f9cf8;
+    resize: none;
+    background-color: #f8f8f8;
 }
+
+/* .on_edit_note_actions span {
+    float: left;
+} */
 
 .dont_display {
     display: none;

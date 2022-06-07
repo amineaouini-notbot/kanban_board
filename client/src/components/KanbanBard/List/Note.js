@@ -7,7 +7,8 @@ const Note = (props) => {
     const { NIndex, LIndex, BIndex } = props;
     const [onEdit, setOnEdit] = useState(false);
     const note = useSelector(state => state.kanban.boards[BIndex].lists[LIndex].content[NIndex]);
-    const [value, setValue] = useState('')
+    const [value, setValue] = useState(note)
+    if (note !== value) setValue(note) // fixes textarea value bug
     const changeValue = (e) => setValue(e.target.value);
     // @ts-ignore
     return (
@@ -28,7 +29,7 @@ const Note = (props) => {
                         {onEdit ?
                             <div className='on_edit_container'>
                                 <div className='on_edit_note_content'>
-                                    <textarea onChange={changeValue} value={note}></textarea>
+                                    <textarea className='edit_textarea' onChange={changeValue} value={value}></textarea>
                                     <div className='on_edit_note_actions'>
 
                                         <span onClick={() => setOnEdit(false)}>X</span>
