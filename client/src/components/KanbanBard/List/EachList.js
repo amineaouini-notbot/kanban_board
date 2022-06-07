@@ -17,13 +17,13 @@ const EachList = (props) => {
     }
 
     return (
-        <Draggable key={LIndex} draggableId={LIndex.toString()} index={LIndex} >
+        <Draggable draggableId={LIndex.toString()} index={LIndex} >
             {(provided, snapshot) => {
 
                 return (
 
 
-                    <div className="lists" {...provided.draggableProps} ref={provided.innerRef} style={getListStyle(snapshot.isDragging, provided.draggableProps.style)}>
+                    <div key={LIndex} className="lists" {...provided.draggableProps} ref={provided.innerRef} style={getListStyle(snapshot.isDragging, provided.draggableProps.style)}>
                         <ListName handleDrag={provided.dragHandleProps} BIndex={BIndex} LIndex={LIndex} />
                         <Droppable droppableId={LIndex.toString()} type='NOTE'>
                             {(provided, snapshot) => {
