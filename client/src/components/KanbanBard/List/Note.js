@@ -3,13 +3,14 @@ import { useSelector } from 'react-redux';
 import './Note.css';
 import { Draggable } from 'react-beautiful-dnd';
 import { FiEdit2 } from "react-icons/fi";
+import { updateNote } from '../../../kanbanSlice';
 const Note = (props) => {
     const { NIndex, LIndex, BIndex } = props;
     const [onEdit, setOnEdit] = useState(false);
     const note = useSelector(state => state.kanban.boards[BIndex].lists[LIndex].content[NIndex]);
-    const [value, setValue] = useState(note)
-    if (note !== value) setValue(note) // fixes textarea value bug
-    const changeValue = (e) => setValue(e.target.value);
+    const [newContent, setNewContent] = useState(note)
+    if (note !== newContent) setNewContent(note) // fixes textarea value bug
+    const changeContent = (e) => setNewContent(e.target.value);
     // @ts-ignore
     return (
         <Draggable draggableId={'note_' + NIndex + '_of_' + LIndex} index={NIndex} key={NIndex} isDragDisabled={onEdit}>
@@ -29,9 +30,9 @@ const Note = (props) => {
                         {onEdit ?
                             <div className='on_edit_container'>
                                 <div className='on_edit_note_content'>
-                                    <textarea className='edit_textarea' onChange={changeValue} value={value}></textarea>
+                                    <textarea className='edit_textarea' onChange={changeContent} value={newContent}></textarea>
                                     <div className='on_edit_note_actions'>
-
+                                        <button>Save</button>
                                         <span onClick={() => setOnEdit(false)}>X</span>
                                     </div>
                                 </div>

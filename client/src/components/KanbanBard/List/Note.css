@@ -53,9 +53,10 @@
     background-color: #f8f8f8;
 }
 
-/* .on_edit_note_actions span {
-    float: left;
-} */
+.on_edit_note_actions {
+    text-align: left;
+
+}
 
 .dont_display {
     display: none;

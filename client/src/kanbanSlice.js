@@ -29,10 +29,14 @@ export const kanbanSlice = createSlice({
             let { s_id, s_index, d_id, d_index, BIndex } = action.payload;
             let [droppedNote] = state.boards[BIndex].lists[s_id].content.splice(s_index, 1);
             state.boards[BIndex].lists[d_id].content.splice(d_index, 0, droppedNote)
+        },
+        updateNote: (state, action) => {
+            let { NIndex, LIndex, BIndex, newContent } = action.payload;
+            state.boards[BIndex].lists[LIndex].content[NIndex] = newContent;
         }
     }
 })
 
-export const { addBoard, addNote, addList, reorderLists, reorderedNotes } = kanbanSlice.actions;
+export const { addBoard, addNote, addList, reorderLists, reorderedNotes, updateNote } = kanbanSlice.actions;
 
 export default kanbanSlice.reducer;
