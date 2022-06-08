@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import './Note.css';
 import { Draggable } from 'react-beautiful-dnd';
 import { FiEdit2 } from "react-icons/fi";
 import { updateNote } from '../../../kanbanSlice';
 const Note = (props) => {
+    const dispatch = useDispatch();
     const { NIndex, LIndex, BIndex } = props;
     const [onEdit, setOnEdit] = useState(false);
     const note = useSelector(state => state.kanban.boards[BIndex].lists[LIndex].content[NIndex]);
     const [newContent, setNewContent] = useState(note)
     if (note !== newContent) setNewContent(note) // fixes textarea value bug
     const changeContent = (e) => setNewContent(e.target.value);
+    const onSave = () => {
+        const payload = { NIndex, LIndex, BIndex, newContent };
+        dispatch(updateNote(payload));
+        setOnEdit(false);
+    }
     // @ts-ignore
     return (
         <Draggable draggableId={'note_' + NIndex + '_of_' + LIndex} index={NIndex} key={NIndex} isDragDisabled={onEdit}>
