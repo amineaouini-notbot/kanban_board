@@ -10,8 +10,10 @@ const Note = (props) => {
     const [onEdit, setOnEdit] = useState(false);
     const note = useSelector(state => state.kanban.boards[BIndex].lists[LIndex].content[NIndex]);
     const [newContent, setNewContent] = useState(note)
-    if (note !== newContent) setNewContent(note) // fixes textarea value bug
-    const changeContent = (e) => setNewContent(e.target.value);
+    const changeContent = (e) => {
+        setNewContent(e.target.value);
+        console.log(newContent)
+    }
     const onSave = () => {
         const payload = { NIndex, LIndex, BIndex, newContent };
         dispatch(updateNote(payload));
@@ -36,9 +38,9 @@ const Note = (props) => {
                         {onEdit ?
                             <div className='on_edit_container'>
                                 <div className='on_edit_note_content'>
-                                    <textarea className='edit_textarea' onChange={changeContent} value={newContent}></textarea>
+                                    <textarea className='edit_textarea' onChange={changeContent} defaultValue={note}></textarea>
                                     <div className='on_edit_note_actions'>
-                                        <button>Save</button>
+                                        <button onClick={onSave}>Save</button>
                                         <span onClick={() => setOnEdit(false)}>X</span>
                                     </div>
                                 </div>

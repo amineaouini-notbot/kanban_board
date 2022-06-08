@@ -32,7 +32,8 @@ export const kanbanSlice = createSlice({
         },
         updateNote: (state, action) => {
             let { NIndex, LIndex, BIndex, newContent } = action.payload;
-            state.boards[BIndex].lists[LIndex].content[NIndex] = newContent;
+            console.log(action.payload)
+            state.boards[BIndex].lists[LIndex].content.splice(NIndex, 1, newContent)
         }
     }
 })
