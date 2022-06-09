@@ -42,6 +42,8 @@
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto 30px;
+    padding-top: 10px;
+    padding-bottom: 5px;
 }
 
 .on_edit_note_content textarea {
@@ -55,7 +57,21 @@
 
 .on_edit_note_actions {
     text-align: left;
+    margin-left: 1.4vw;
 
+}
+
+.on_edit_note_actions button {
+    height: 25px;
+    border: 1px solid#5f9cf8;
+}
+
+.close_on_edit {
+    position: relative;
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
 }
 
 .dont_display {

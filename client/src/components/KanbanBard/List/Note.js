@@ -4,6 +4,7 @@ import './Note.css';
 import { Draggable } from 'react-beautiful-dnd';
 import { FiEdit2 } from "react-icons/fi";
 import { updateNote } from '../../../kanbanSlice';
+import { VscChromeClose } from "react-icons/vsc";
 const Note = (props) => {
     const dispatch = useDispatch();
     const { NIndex, LIndex, BIndex } = props;
@@ -41,7 +42,7 @@ const Note = (props) => {
                                     <textarea className='edit_textarea' onChange={changeContent} defaultValue={note}></textarea>
                                     <div className='on_edit_note_actions'>
                                         <button onClick={onSave}>Save</button>
-                                        <span onClick={() => setOnEdit(false)}>X</span>
+                                        <VscChromeClose className='close_on_edit' onClick={() => setOnEdit(false)}>X</VscChromeClose>
                                     </div>
                                 </div>
                             </div> : <div className='dont_display'></div>}
