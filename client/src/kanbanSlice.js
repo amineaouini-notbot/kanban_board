@@ -7,33 +7,32 @@ export const kanbanSlice = createSlice({
     },
     reducers: {
         addBoard: (state, action) => {
-            state.boards.push({
+            state.boards.push({ // add board
                 name: action.payload.name,
                 lists: []
             })
         },
-        addList: (state, action) => {
+        addList: (state, action) => { // add list to board
             state.boards[action.payload.BIndex].lists.push({ name: action.payload.name, content: [] })
 
         },
-        reorderLists: (state, action) => {
+        reorderLists: (state, action) => { // once drag and drop
             let { DIndex, SIndex, BIndex } = action.payload;
-            let [reorderedList] = state.boards[BIndex].lists.splice(SIndex, 1);
-            state.boards[BIndex].lists.splice(DIndex, 0, reorderedList)
+            let [reorderedList] = state.boards[BIndex].lists.splice(SIndex, 1); // retrieve dragged list
+            state.boards[BIndex].lists.splice(DIndex, 0, reorderedList) // save list where it's dropped
 
         },
-        addNote: (state, action) => {
+        addNote: (state, action) => { // add note to list
             state.boards[action.payload.BIndex].lists[action.payload.LIndex].content.push(action.payload.content)
         },
-        reorderedNotes: (state, action) => {
+        reorderedNotes: (state, action) => { // once drag and drop note
             let { s_id, s_index, d_id, d_index, BIndex } = action.payload;
-            let [droppedNote] = state.boards[BIndex].lists[s_id].content.splice(s_index, 1);
-            state.boards[BIndex].lists[d_id].content.splice(d_index, 0, droppedNote)
+            let [droppedNote] = state.boards[BIndex].lists[s_id].content.splice(s_index, 1); // retrieve dragged note
+            state.boards[BIndex].lists[d_id].content.splice(d_index, 0, droppedNote) // save note where it's dropped
         },
-        updateNote: (state, action) => {
+        updateNote: (state, action) => { // once save updated note
             let { NIndex, LIndex, BIndex, newContent } = action.payload;
-            console.log(action.payload)
-            state.boards[BIndex].lists[LIndex].content.splice(NIndex, 1, newContent)
+            state.boards[BIndex].lists[LIndex].content.splice(NIndex, 1, newContent) // update note to it's new value
         }
     }
 })
