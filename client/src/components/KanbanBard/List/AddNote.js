@@ -10,10 +10,10 @@ const AddNote = (props) => {
     const { BIndex, LIndex } = props;
     const close = () => setOnAdd(false);
 
-    let handleOnAdd = () => {
+    let handleOnAdd = () => { // add note button clicked save new note to it's list
         if (content.length > 0) {
-            dispatch(addNote({ BIndex, LIndex, content }));
-            close();
+            dispatch(addNote({ BIndex, LIndex, content }));  // dispatch add note reducer
+            close(); // returns comp to add_note div
         }
     };
 
