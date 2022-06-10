@@ -11,13 +11,12 @@ const Note = (props) => {
     const [onEdit, setOnEdit] = useState(false);
     const note = useSelector(state => state.kanban.boards[BIndex].lists[LIndex].content[NIndex]);
     const [newContent, setNewContent] = useState(note)
-    const changeContent = (e) => {
+    const changeContent = (e) => { 
         setNewContent(e.target.value);
-        console.log(newContent)
     }
-    const onSave = () => {
+    const onSave = () => { // on save updated note value 
         const payload = { NIndex, LIndex, BIndex, newContent };
-        dispatch(updateNote(payload));
+        dispatch(updateNote(payload)); // dispatch update note reducer with new note content
         setOnEdit(false);
     }
     // @ts-ignore

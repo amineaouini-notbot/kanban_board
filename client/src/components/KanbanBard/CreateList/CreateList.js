@@ -11,15 +11,15 @@ const CreateList = (props) => {
     const [onCreate, setOnCreate] = useState(false);
     let handleCreate = () => {
         if (listName.length > 0) {
-            dispatch(addList({ BIndex: id, name: listName }))
-            setOnCreate(false)
+            dispatch(addList({ BIndex: id, name: listName })) // dispatch add list reducer
+            setOnCreate(false) // return component it to add list button
         }
     }
     let addListRef = useRef(null);
     useEffect(() => {
         let handler = event => {
-            if (!addListRef.current.contains(event.target)) {
-                setOnCreate(false)
+            if (!addListRef.current.contains(event.target)) { // on out of focus from add list
+                setOnCreate(false) // return component it to add list button
             }
         }
         document.addEventListener('mousedown', handler)
