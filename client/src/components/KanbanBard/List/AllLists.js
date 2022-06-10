@@ -12,16 +12,16 @@ const AllLists = (props) => {
     let lists = useSelector(state => state.kanban.boards[BIndex].lists)
     const handleOnDrag = result => {
         if (!result.destination) return
-        if (result.source.droppableId === 'all_lists') {
+        if (result.source.droppableId === 'all_lists') { // if DnD list reorder lists
 
             let payload = {
                 BIndex,
                 DIndex: result.destination.index,
                 SIndex: result.source.index
             }
-            dispatch(reorderLists(payload))
+            dispatch(reorderLists(payload)) // dispatch reorder lists reducer
         }
-        else {
+        else { // else (DnD notes) reorder notes
             let payload = {
                 BIndex: BIndex,
                 s_id: result.source.droppableId,
@@ -29,7 +29,7 @@ const AllLists = (props) => {
                 s_index: result.source.index,
                 d_index: result.destination.index
             }
-            dispatch(reorderedNotes(payload))
+            dispatch(reorderedNotes(payload)) // dispatch reorder notes reducer
         }
     }
 
