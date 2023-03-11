@@ -15,7 +15,6 @@ const Home = () => {
 
                 <div id="content" style={boards.length === 2 ? { griTemplateColumns: 'auto auto', marginLeft: '15%' } : {}}>
                     {boards.map((board, i) => <Boards boardName={board.name} id={i} />)}
-
                 </div>
                 
                 <div id="create_board" onClick={togglePopUp}><p>Create a new Board +</p></div>

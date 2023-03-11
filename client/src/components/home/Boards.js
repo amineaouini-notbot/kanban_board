@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 const Boards = (props) => {
     // const redirect = ()=> props.redirect(props.id)
     return (
-        <div>
+        <div id="boards">
 
-        <Link id="boards" to={`/board/` + props.id}>
+        <Link  to={`/board/` + props.id}>
             <div className="board">
                 <p>{props.boardName}</p>
             </div>

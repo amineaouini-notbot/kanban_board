@@ -3,13 +3,6 @@
     color: #68a0f5;
 }
 
-#boards_content{
-    display: grid;
-    grid-template-rows: auto auto;
-    grid-template-columns: auto;
-    
-}
-
 #content {
     user-select: none;
     display: grid;
@@ -20,69 +13,18 @@
 }
 
 #create_board {
-    position: static;
-    margin: auto;
     background-color: #C4C4C4;
-    width: 350px;
+    width: 25vw;
     height: 70px;
     border-radius: 5px;
-    margin-top: 150px;
+    margin-left: 37vw;
+    margin-top: 75vh;
 
 }
 
 #create_board p {
     color: white;
     font-size: 30px;
-    position: relative;
-    bottom: 13px;
+    
 
-}
-
-#disclaimer {
-
-    margin-top: 30px;
-    margin-left: 15%;
-    padding: 10px;
-    width: 70%;
-    text-align: left;
-    border: 3px solid #5f9cf8;
-    height: 150px;
-    background-color: rgb(102, 158, 239, 0.6);
-}
-
-#disclaimer #disclaimer_content {
-    height: 150px;
-    position: relative;
-    bottom: 30px;
-}
-
-#disclaimer h4 {
-    font-weight: normal;
-    font-size: 26px;
-}
-
-#disclaimer p {
-    position: relative;
-    bottom: 20px;
-    font-size: 26px;
-}
-
-#my_info_container {
-    width: 70%;
-    border: 3px solid #5f9cf8;
-    background-color: rgb(102, 158, 239, 0.6);
-    margin-left: 15%;
-    margin-top: 30px;
-    padding: 10px;
-    font-size: 24px;
-    height: 110px;
-}
-
-#my_info_container #my_info {
-    position: relative;
-    bottom: 20px;
-}
-
-#my_info h4 {
-    font-weight: normal;
 }
