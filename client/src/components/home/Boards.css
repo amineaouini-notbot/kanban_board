@@ -1,3 +1,7 @@
+#boards {
+    outline: none;
+    text-decoration: none;
+}
 .board {
     background-color: #C4C4C4;
     /* padding-top: 10px;
@@ -12,5 +16,5 @@
     color: white;
     font-size: 30px;
     position: relative;
-    bottom: 10px;
+    top: 13px;
 }

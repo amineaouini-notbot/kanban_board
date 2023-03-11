@@ -3,20 +3,30 @@
     color: #68a0f5;
 }
 
+#boards_content{
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto;
+    
+}
+
 #content {
     user-select: none;
     display: grid;
-    grid-template-columns: auto auto auto;
-    row-gap: 20px;
+    grid-template-columns: auto auto auto auto;
+    column-gap: 2vw;
+    row-gap: 1vh;
+    margin-left: 20vw;
 }
 
 #create_board {
+    position: static;
     margin: auto;
     background-color: #C4C4C4;
     width: 350px;
     height: 70px;
     border-radius: 5px;
-    margin-top: 70px;
+    margin-top: 150px;
 
 }
 
@@ -24,7 +34,7 @@
     color: white;
     font-size: 30px;
     position: relative;
-    top: 17px;
+    bottom: 13px;
 
 }
 
