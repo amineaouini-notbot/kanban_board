@@ -6,7 +6,7 @@ CREATE TABLE boards (
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     made_at DATETIME NOT NULL,
-    PRIMARY KEY (id, name, made_at)
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE lists (
