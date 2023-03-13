@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import boards_api from './api/boards';
 
 export const kanbanSlice = createSlice({
     name: 'kanban',
@@ -7,8 +8,14 @@ export const kanbanSlice = createSlice({
     },
     reducers: {
         addBoard: (state, action) => {
+            const {name} = action.payload;
+            let made_at = new Date().toISOString().slice(0, 19).replace('T', ' ');
+
+            boards_api.create({name, made_at}, ()=>{
+            })
+            
             state.boards.push({ // add board
-                name: action.payload.name,
+                name: name,
                 lists: []
             })
         },
