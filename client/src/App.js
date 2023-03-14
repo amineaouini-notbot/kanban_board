@@ -14,7 +14,7 @@ function App() {
 
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/Board/:id' element={<KanbanBoard />} />
+          <Route path='/board' element={<KanbanBoard />} />
         </Routes>
       </div>
     </Router>

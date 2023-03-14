@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 const BNPopUp = (props) => {
-    const nextBoard = useSelector(state => state.kanban.boards).length
     const dispatch = useDispatch();
     const [kanbanName, setName] = useState('');
     const handleChange = (e) => setName(e.target.value)
@@ -20,7 +19,7 @@ const BNPopUp = (props) => {
                 <button id="close_popup" onClick={props.closePopup}>x</button>
                 <form>
                     <input onChange={handleChange} placeholder="Write you board name"></input>
-                    <Link id="create" to={`/board/` + nextBoard} onClick={createBoard}>Create</Link >
+                    <Link id="create" to={`/board`} onClick={createBoard}>Create</Link >
                 </form>
             </div>
         </div>

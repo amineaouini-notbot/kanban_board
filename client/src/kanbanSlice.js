@@ -4,21 +4,25 @@ import boards_api from './api/boards';
 export const kanbanSlice = createSlice({
     name: 'kanban',
     initialState: {
-        boards: []
+        boards: [],
+        openedBoard: null
     },
     reducers: {
         addBoard: (state, action) => {
             const {name} = action.payload;
-
             boards_api.create({name}, (boardId)=>{
-                localStorage.setItem("boaaaaaaaaaaaaaaaardIddddddddddddddddddddddddD____", boardId.toString());
+                state.boards.openedBoard = boardId;
 
+                state.boards.push({ // add board
+                    name,
+                    lists: []
+                })
             })
             
-            state.boards.push({ // add board
-                name: name,
-                lists: []
-            })
+        },
+        openBoard: (state, action) => {
+            const {boardId} = action.payload;
+            state.boards.openedBoard = boardId;
         },
         addList: (state, action) => { // add list to board
             state.boards[action.payload.BIndex].lists.push({ name: action.payload.name, content: [] })
@@ -45,6 +49,6 @@ export const kanbanSlice = createSlice({
     }
 })
 
-export const { addBoard, addNote, addList, reorderLists, reorderedNotes, updateNote } = kanbanSlice.actions;
+export const { addBoard, addNote, addList, reorderLists, reorderedNotes, updateNote, openBoard } = kanbanSlice.actions;
 
 export default kanbanSlice.reducer;
