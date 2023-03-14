@@ -2,13 +2,11 @@ import axios from 'axios';
 
 const boards_api = {
     create: (data, cb)=>{
-        const { name, made_at } = data;
 
-        axios.post('/board/create', {
-            name,
-            made_at
-          })
-          .then((res)=>{ cb() })
+        axios.post('/board/create', data)
+          .then((res)=>{ 
+            let {boardId} = res.data
+            cb( boardId ) })
           .catch((err)=> {throw err});
     }
 }

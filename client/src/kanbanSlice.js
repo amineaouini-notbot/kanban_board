@@ -9,9 +9,10 @@ export const kanbanSlice = createSlice({
     reducers: {
         addBoard: (state, action) => {
             const {name} = action.payload;
-            let made_at = new Date().toISOString().slice(0, 19).replace('T', ' ');
 
-            boards_api.create({name, made_at}, ()=>{
+            boards_api.create({name}, (boardId)=>{
+                localStorage.setItem("boaaaaaaaaaaaaaaaardIddddddddddddddddddddddddD____", boardId.toString());
+
             })
             
             state.boards.push({ // add board
