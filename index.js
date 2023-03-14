@@ -1,15 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const {boards_api} = require('./routes/boards');
 const cors = require('cors');
 
 const app = express();
-// {origin: "http://localhost:3000"}
-app.use(cors())
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use('/api/board', boards_api); 
-// any http request starts with /board uses boards.js to handle endpoints
+
+app.use(cors()) // allow server to use CORS
+app.use(bodyParser.json()); // convert coming data from json
+
+app.use('/api/board', require('./routes/boards')); 
+// any http request starts with /board uses boards router to handle endpoints
 
 const PORT = process.env.PORT || 5000;
 
