@@ -6,7 +6,7 @@ boards_api.post('/create', (req, res)=>{
     db.query(`INSERT INTO boards (name, made_at) VALUES (?, curdate())`, [name],  // insert data in the db
         (err, result)=>{
             if (err) throw err; // throw err incase any problem shows up
-            
+            console.log('board is inserted')
             res.status(200).send({boardId: result.insertId})
             // when send board id and 200 status after board inserted
     })
