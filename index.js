@@ -8,7 +8,7 @@ const app = express();
 app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use('/board', boards_api); 
+app.use('/api/board', boards_api); 
 // any http request starts with /board uses boards.js to handle endpoints
 
 const PORT = process.env.PORT || 5000;
