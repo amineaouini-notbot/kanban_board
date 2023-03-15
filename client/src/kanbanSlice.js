@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import boards_api from './api/boards';
-
+import axios from 'axios';
 export const kanbanSlice = createSlice({
     name: 'kanban',
     initialState: {
@@ -9,21 +8,19 @@ export const kanbanSlice = createSlice({
     },
     reducers: {
         addBoard: (state, action) => {
-            const {name} = action.payload;
-            boards_api.create({name}, (boardId)=>{
-                state.boards.openedBoard = boardId;
-
-                state.boards.push({ // add board
-                    name,
-                    lists: []
-                })
-            })
+            const {name, id, index} = action.payload;
             
+            state.boards.push({ // add board
+                id,
+                name,
+                lists: []
+            })
+            state.openedBoard = {id, index};
         },
-        openBoard: (state, action) => {
-            const {boardId} = action.payload;
-            state.boards.openedBoard = boardId;
-        },
+        // openBoard: (state, action) => {
+        //     const {boardId} = action.payload;
+        //     state.boards.openedBoard = boardId;
+        // },
         addList: (state, action) => { // add list to board
             state.boards[action.payload.BIndex].lists.push({ name: action.payload.name, content: [] })
 

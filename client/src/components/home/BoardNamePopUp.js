@@ -3,14 +3,17 @@ import './popup.css'
 import { addBoard } from "../../kanbanSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-
+import axios from "axios";
 const BNPopUp = (props) => {
     const dispatch = useDispatch();
     const [kanbanName, setName] = useState('');
     const handleChange = (e) => setName(e.target.value)
-
-    const createBoard = () => { // Note: after clicking create board redirect page to new board route
-        dispatch(addBoard({ name: kanbanName })) // dispatch add board reducer
+    const index = useSelector(state => state.kanban.boards.length);
+    const createBoard = async() => { // Note: after clicking create board redirect page to new board route
+        let res = await axios.post('/api/board/create', { name: kanbanName })
+            let {boardId} = res.data
+            console.log(res.data.boardId) 
+        dispatch(addBoard({ name: kanbanName , id: boardId, index})) // dispatch add board reducer
         props.closePopup() // close add board popup
     }
     return (
