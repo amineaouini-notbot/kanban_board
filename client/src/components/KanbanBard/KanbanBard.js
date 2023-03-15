@@ -4,16 +4,16 @@ import { useSelector } from "react-redux";
 import './KanbanBoard.css';
 import AllLists from "./List/AllLists";
 const KanbanBoard = () => {
-    let  id  = useSelector(state => state.kanban.openedBoard);
-    let board = useSelector(state => state.kanban.boards);
-    console.log(id ) 
-    return ( <div>aaaaaa</div>)
-    // (<div>
-    //         <div id="board_title">
-    //         <h2>{name}</h2>
-    //         </div>
-    //         <AllLists BIndex={id}></AllLists>
-    //         </div >) 
+    let  boardIndex  = useSelector(state => state.kanban.openedBoard.index);
+    let name = useSelector(state => state.kanban.boards[boardIndex].name);
+    console.log(useSelector(state => state.kanban.openedBoard))
+    return (<div>
+                <div id="board_title">
+                    <h2>{name}</h2>
+                </div>
+                <AllLists BIndex={boardIndex}></AllLists>
+            </div >
+            ) 
         
     
 }

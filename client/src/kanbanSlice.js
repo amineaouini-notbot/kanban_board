@@ -4,7 +4,7 @@ export const kanbanSlice = createSlice({
     name: 'kanban',
     initialState: {
         boards: [],
-        openedBoard: null
+        openedBoard: {}
     },
     reducers: {
         addBoard: (state, action) => {

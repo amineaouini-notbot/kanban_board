@@ -18,7 +18,7 @@ const EachList = (props) => {
 
     return (
         <Draggable draggableId={LIndex.toString()} index={LIndex} >
-            {(provided, snapshot) => {
+            {(provided, snapshot) => { 
 
                 return (
 

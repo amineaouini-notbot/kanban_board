@@ -41,7 +41,7 @@ const AllLists = (props) => {
                         return (
                             <div id="lists" {...provided.droppableProps} ref={provided.innerRef}>
 
-                                {lists.map((list, LIndex) => <EachList LIndex={LIndex} BIndex={BIndex} />)}
+                                {lists.map((list, LIndex) => <EachList key={LIndex} LIndex={LIndex} BIndex={BIndex} />)}
                                 {provided.placeholder}
                             </div>
                         )

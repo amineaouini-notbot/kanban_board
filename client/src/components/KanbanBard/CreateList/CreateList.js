@@ -3,15 +3,15 @@ import { addList } from "../../../kanbanSlice";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import './CreateList.css';
-
+import { useSelector } from "react-redux";
 const CreateList = (props) => {
-    const { id } = useParams();
+    let index = useSelector(state => state.kanban.openedBoard.index);
     const dispatch = useDispatch();
     const [listName, setListName] = useState("");
     const [onCreate, setOnCreate] = useState(false);
     let handleCreate = () => {
         if (listName.length > 0) {
-            dispatch(addList({ BIndex: id, name: listName })) // dispatch add list reducer
+            dispatch(addList({ BIndex: index, name: listName })) // dispatch add list reducer
             setOnCreate(false) // return component it to add list button
         }
     }
