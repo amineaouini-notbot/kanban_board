@@ -17,10 +17,10 @@ export const kanbanSlice = createSlice({
             })
             state.openedBoard = {id, index};
         },
-        // openBoard: (state, action) => {
-        //     const {boardId} = action.payload;
-        //     state.boards.openedBoard = boardId;
-        // },
+        openBoard: (state, action) => {
+            const {id, index} = action.payload;
+            state.boards.openedBoard = {id, index};
+        },
         addList: (state, action) => { // add list to board
             state.boards[action.payload.BIndex].lists.push({ name: action.payload.name, content: [] })
 

@@ -1,17 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
 import { addList } from "../../../kanbanSlice";
-import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import './CreateList.css';
-import { useSelector } from "react-redux";
+import axios from "axios";
 const CreateList = (props) => {
-    let index = useSelector(state => state.kanban.openedBoard.index);
+    let BIndex = useSelector(state => state.kanban.openedBoard.index);
     const dispatch = useDispatch();
     const [listName, setListName] = useState("");
     const [onCreate, setOnCreate] = useState(false);
-    let handleCreate = () => {
+    let handleCreate = async() => {
         if (listName.length > 0) {
-            dispatch(addList({ BIndex: index, name: listName })) // dispatch add list reducer
+            let res = await axios.post('/api/lists/create', {name: listName, BIndex})
+            
+            dispatch(addList({ BIndex, name: listName })) // dispatch add list reducer
             setOnCreate(false) // return component it to add list button
         }
     }
