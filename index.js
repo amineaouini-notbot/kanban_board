@@ -7,8 +7,9 @@ const app = express();
 app.use(cors()) // allow server to use CORS
 app.use(bodyParser.json()); // convert coming data from json
 
-app.use('/api/board', require('./routes/boards')); 
+app.use('/api/boards', require('./routes/boards')); 
 // any http request starts with /board uses boards router to handle endpoints
+app.use('/api/lists', require('./routes/lists')); 
 
 const PORT = process.env.PORT || 5000;
 

@@ -10,7 +10,7 @@ const BNPopUp = (props) => {
     const handleChange = (e) => setName(e.target.value)
     const index = useSelector(state => state.kanban.boards.length);
     const createBoard = async() => { // Note: after clicking create board redirect page to new board route
-        let res = await axios.post('/api/board/create', { name: kanbanName })
+        let res = await axios.post('/api/boards/create', { name: kanbanName })
             let {boardId} = res.data
         dispatch(addBoard({ name: kanbanName , id: boardId, index})) // dispatch add board reducer
         props.closePopup() // close add board popup
