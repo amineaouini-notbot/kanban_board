@@ -13,6 +13,7 @@ const BNPopUp = (props) => {
         let res = await axios.post('/api/boards/create', { name: kanbanName })
             let {boardId} = res.data
         dispatch(addBoard({ name: kanbanName , id: boardId, index})) // dispatch add board reducer
+        console.log({ name: kanbanName , id: boardId, index}, 'board created')
         props.closePopup() // close add board popup
     }
     return (
