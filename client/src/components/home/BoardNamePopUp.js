@@ -14,10 +14,8 @@ const BNPopUp = (props) => {
         .then(res =>{
 
             let {boardId} = res.data
-            dispatch(addBoard({ name: kanbanName , id: boardId, index})) // dispatch add board reducer
-            console.log(boardId, 'board created')
-            
-            // props.closePopup() // close add board popup
+            dispatch(addBoard({ name: kanbanName , id: boardId, index})) // dispatch add board reducer            
+            props.closePopup() // close add board popup
         })
         .catch(err=> {throw err})
         // const navigate = useNavigate()

@@ -7,6 +7,11 @@ export const kanbanSlice = createSlice({
         openedBoard: {}
     },
     reducers: {
+        getAllBoards: (state, action) => {
+            const {allBoards} = action.payload;
+
+            state.boards = allBoards;
+        },
         addBoard: (state, action) => {
             const {name, id, index} = action.payload;
             
