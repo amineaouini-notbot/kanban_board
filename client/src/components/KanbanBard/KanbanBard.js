@@ -4,16 +4,17 @@ import './KanbanBoard.css';
 import AllLists from "./List/AllLists";
 const KanbanBoard = () => {
     console.log(useSelector(state => state.kanban))
-    let  boardIndex  = useSelector(state => state.kanban.openedBoard.index);
-    let name = useSelector(state => state.kanban.boards[boardIndex].name);
-    console.log(boardIndex, name)
-    return (<div>
-                <div id="board_title">
-                    <h2>{name}</h2>
-                </div>
-                <AllLists BIndex={boardIndex}></AllLists>
-            </div >
-            ) 
+    let  BIndex  = useSelector(state => state.kanban.openedBoard.index);
+    console.log(BIndex)
+    let openedBoard = useSelector(state => state.kanban.boards[BIndex]) || 1;
+    
+    return openedBoard.name ? (<div>
+        <div id="board_title">
+            <h2>{openedBoard.name}</h2>
+        </div>
+        <AllLists BIndex={BIndex}></AllLists>
+    </div >) : (<div>ddd</div>)
+    
         
     
 }

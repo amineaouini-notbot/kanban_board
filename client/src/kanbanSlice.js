@@ -16,6 +16,7 @@ export const kanbanSlice = createSlice({
                 lists: []
             })
             state.openedBoard = {id, index};
+            return state;
         },
         openBoard: (state, action) => {
             const {id, index} = action.payload;
