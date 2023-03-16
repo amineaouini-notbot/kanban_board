@@ -52,6 +52,6 @@ export const kanbanSlice = createSlice({
     }
 })
 
-export const { addBoard, addNote, addList, reorderLists, reorderedNotes, updateNote, openBoard } = kanbanSlice.actions;
+export const { addBoard, addNote, addList, reorderLists, reorderedNotes, updateNote, openBoard, getAllBoards } = kanbanSlice.actions;
 
 export default kanbanSlice.reducer;

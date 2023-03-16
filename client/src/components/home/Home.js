@@ -3,11 +3,18 @@ import { useSelector } from "react-redux";
 import BNPopUp from "./BoardNamePopUp";
 import './home.css';
 import Boards from "./Boards";
+import axios from "axios";
 
 const Home = () => {
     let boards = useSelector(state => state.kanban.boards);
     const [showPopUp, togglePopup] = useState(false);
     let togglePopUp = () => togglePopup(!showPopUp);
+    
+    axios.get('/api/boards/retrieveall')
+        .then(res =>{
+            console.log(res);
+        })
+        .catch(err => { throw err })
     
     return (
         <div>
