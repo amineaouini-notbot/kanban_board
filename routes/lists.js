@@ -13,7 +13,7 @@ lists_router.post('/create', (req, res)=>{
 
 lists_router.get('/retrieve', (req, res) => {
     let {BId} = req.body;
-    db.query('SELECT id, name FROM customers WHERE address = (?)', [BId], // retrieve lists for opend board in front 
+    db.query('SELECT id, name FROM lists WHERE boards_id = (?)', [BId], // retrieve lists for opend board in front 
     (err, result)=>{
         if ( err ) throw err; // throw err in case one accures 
         res.status(200).send(result); // send retrieved lists to front
