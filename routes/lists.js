@@ -11,4 +11,12 @@ lists_router.post('/create', (req, res)=>{
     })
 })
 
+lists_router.get('/retrieve', (req, res) => {
+    let {BId} = req.body;
+    db.query('SELECT id, name FROM customers WHERE address = (?)', [BId],
+    (err, result)=>{
+        if ( err ) throw err;
+        res.status(200).send(result);
+    })
+})
 module.exports = lists_router;

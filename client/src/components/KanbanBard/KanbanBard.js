@@ -13,6 +13,7 @@ const KanbanBoard = () => {
     if (!listsRetrieved){
         axios.get('/api/lists/retrieve', {BId: openedBoard.id})
         .then(res=>{
+            isRetrieved(true);
             console.log(res)
         })
         .catch(err => {throw err});
