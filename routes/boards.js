@@ -12,9 +12,9 @@ boards_router.post('/create', (req, res)=>{
 })
 
 boards_router.get('/retrieveall', (req, res)=>{
-    db.query('SELECT id, name FROM boards', (err, result)=>{
-        if (err) throw err;
-        res.status(200).send(result);
+    db.query('SELECT id, name FROM boards', (err, result)=>{ // retrieve all boards created
+        if (err) throw err; // throw error incase one accurse
+        res.status(200).send(result); // send retrieve boards to front
     })
 })
 
