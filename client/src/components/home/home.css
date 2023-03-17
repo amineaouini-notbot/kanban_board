@@ -4,12 +4,16 @@
 }
 
 #content {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: 70vh;
+    width: 80vw;
     user-select: none;
     display: grid;
     grid-template-columns: auto auto auto auto;
     column-gap: 2vw;
     row-gap: 1vh;
-    margin-left: 20vw;
+    left: 10vw;
 }
 
 #create_board {

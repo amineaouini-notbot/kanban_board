@@ -1,20 +1,26 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import BNPopUp from "./BoardNamePopUp";
 import './home.css';
 import Boards from "./Boards";
 import axios from "axios";
-
+import {retrieveAllBoards} from '../../kanbanSlice'
 const Home = () => {
     let boards = useSelector(state => state.kanban.boards);
     const [showPopUp, togglePopup] = useState(false);
+    const [isRetrieved, boardsRetrieved] = useState(false);
     let togglePopUp = () => togglePopup(!showPopUp);
-    
-    axios.get('/api/boards/retrieveall')
-        .then(res =>{
-            console.log(res);
-        })
-        .catch(err => { throw err })
+    const dispatch = useDispatch();
+    if (!isRetrieved){
+
+        axios.get('/api/boards/retrieveall')
+            .then(res =>{
+                boardsRetrieved(true)
+                dispatch(retrieveAllBoards({allBoards: res.data}))
+            })
+            .catch(err => { throw err })
+            console.log(boards)
+        }
     
     return (
         <div>
@@ -22,7 +28,7 @@ const Home = () => {
             <div id="boards_content">
 
                 <div id="content" style={boards.length === 2 ? { griTemplateColumns: 'auto auto', marginLeft: '15%' } : {}}>
-                    {boards.map((board, i) => <Boards boardName={board.name} id={board.id} index={i} />)}
+                    {boards[0] ? boards.map((board, i) => <Boards boardName={board.name} id={board.id} index={i} />) : <div></div>}
                 </div>
                 
                 <div id="create_board" onClick={togglePopUp}><p>Create a new Board +</p></div>

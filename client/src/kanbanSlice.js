@@ -4,12 +4,12 @@ export const kanbanSlice = createSlice({
     name: 'kanban',
     initialState: {
         boards: [],
-        openedBoard: {}
+        openedBoard: []
     },
     reducers: {
-        getAllBoards: (state, action) => {
+        retrieveAllBoards: (state, action) => {
             const {allBoards} = action.payload;
-
+            
             state.boards = allBoards;
         },
         addBoard: (state, action) => {
@@ -20,12 +20,11 @@ export const kanbanSlice = createSlice({
                 name,
                 lists: []
             })
-            state.openedBoard = {id, index};
-            return state;
+            state.openedBoard.push({id, index});
         },
         openBoard: (state, action) => {
             const {id, index} = action.payload;
-            state.boards.openedBoard = {id, index};
+            state.openedBoard.push(action.payload);
         },
         addList: (state, action) => { // add list to board
             state.boards[action.payload.BIndex].lists.push({ name: action.payload.name, content: [] })
@@ -52,6 +51,6 @@ export const kanbanSlice = createSlice({
     }
 })
 
-export const { addBoard, addNote, addList, reorderLists, reorderedNotes, updateNote, openBoard, getAllBoards } = kanbanSlice.actions;
+export const { addBoard, addNote, addList, reorderLists, reorderedNotes, updateNote, openBoard, retrieveAllBoards } = kanbanSlice.actions;
 
 export default kanbanSlice.reducer;
