@@ -25,10 +25,10 @@ const Home = () => {
     return (
         <div>
             <h1 id="title">kanban Board</h1>
-            <div id="boards_content">
+            <div>
 
-                <div id="content" style={boards.length === 2 ? { griTemplateColumns: 'auto auto', marginLeft: '15%' } : {}}>
-                    {boards[0] ? boards.map((board, i) => <Boards boardName={board.name} id={board.id} index={i} />) : <div></div>}
+                <div id="boards_content" style={boards.length === 2 ? { griTemplateColumns: 'auto auto', marginLeft: '15%' } : {}}>
+                    {boards[0] ? boards.map((board, i) => <Boards key={i} boardName={board.name} id={board.id} index={i} />) : <div></div>}
                 </div>
                 
                 <div id="create_board" onClick={togglePopUp}><p>Create a new Board +</p></div>

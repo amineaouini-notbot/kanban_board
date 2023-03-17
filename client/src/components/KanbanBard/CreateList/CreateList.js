@@ -30,7 +30,7 @@ const CreateList = (props) => {
         return () => { document.removeEventListener('mousedown', handler) }
     })
     return (<div id="add_list_container">
-        {/* {!onCreate ? (<div id="add_list" onClick={() => {
+        {!onCreate ? (<div id="add_list" onClick={() => {
             setOnCreate(true)
             setListName("")
         }}><span>+ Add a list</span></div>) :
@@ -40,7 +40,7 @@ const CreateList = (props) => {
                     <button onClick={handleCreate}>Add list</button>
                     <span onClick={() => setOnCreate(false)}>x</span>
                 </div>
-            </div>} */}
+            </div>}
 
 
 

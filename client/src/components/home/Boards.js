@@ -14,7 +14,7 @@ const Boards = (props) => {
 
     }
     return (
-        <div id="boards" key={props.index}>
+        <div id="boards" >
 
             <Link  to={`/board`} onClick={onOpen}>
                 <div className="board">

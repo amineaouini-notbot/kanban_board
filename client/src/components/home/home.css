@@ -3,7 +3,7 @@
     color: #68a0f5;
 }
 
-#content {
+#boards_content {
     overflow-x: hidden;
     overflow-y: scroll;
     height: 70vh;
@@ -13,7 +13,8 @@
     grid-template-columns: auto auto auto auto;
     column-gap: 2vw;
     row-gap: 1vh;
-    left: 10vw;
+    margin-left: 10vw;
+    margin-bottom: 3vh;
 }
 
 #create_board {
@@ -22,7 +23,6 @@
     height: 70px;
     border-radius: 5px;
     margin-left: 37vw;
-    margin-top: 75vh;
 
 }
 
