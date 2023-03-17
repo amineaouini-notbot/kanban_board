@@ -31,6 +31,9 @@ export const kanbanSlice = createSlice({
             state.boards[action.payload.BIndex].lists.push({ name: action.payload.name, content: [] })
 
         },
+        reatrieveLists: (state, action)=>{
+            state.boards[action.payload.BIndex].lists = action.payload.lists;
+        },
         reorderLists: (state, action) => { // once drag and drop
             let { DIndex, SIndex, BIndex } = action.payload;
             let [reorderedList] = state.boards[BIndex].lists.splice(SIndex, 1); // retrieve dragged list
@@ -52,6 +55,6 @@ export const kanbanSlice = createSlice({
     }
 })
 
-export const { addBoard, addNote, addList, reorderLists, reorderedNotes, updateNote, openBoard, retrieveAllBoards } = kanbanSlice.actions;
+export const { addBoard, addNote, addList, reorderLists, reorderedNotes, updateNote, openBoard, retrieveAllBoards, reatrieveLists } = kanbanSlice.actions;
 
 export default kanbanSlice.reducer;
