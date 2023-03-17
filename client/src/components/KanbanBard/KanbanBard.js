@@ -7,7 +7,7 @@ const KanbanBoard = () => {
     let  openedBoards  = useSelector(state => state.kanban.openedBoard);
     let lastOpened = openedBoards[openedBoards.length-1]
     console.log(lastOpened)
-    let openedBoard = useSelector(state => state.kanban.boards[lastOpened.index]);
+    let openedBoard = useSelector(state => state.kanban.boards[lastOpened.index]) || 1;
     
     return openedBoard.name ? (<div>
         <div id="board_title">

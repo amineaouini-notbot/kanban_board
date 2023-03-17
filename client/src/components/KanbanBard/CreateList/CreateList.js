@@ -4,9 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import './CreateList.css';
 import axios from "axios";
 const CreateList = (props) => {
-    let boardId = useSelector(state => state.kanban.openedBoard.id);
-    let BIndex = useSelector(state => state.kanban.openedBoard.index);
-    console.log(boardId)
+    let openedBoards = useSelector(state => state.kanban.openedBoard)
+    let openedBoard = openedBoards[openedBoards.length-1]
+    let boardId = openedBoard.id;
+    let BIndex = openedBoard.index;
     const dispatch = useDispatch();
     const [listName, setListName] = useState("");
     const [onCreate, setOnCreate] = useState(false);
@@ -29,7 +30,7 @@ const CreateList = (props) => {
         return () => { document.removeEventListener('mousedown', handler) }
     })
     return (<div id="add_list_container">
-        {!onCreate ? (<div id="add_list" onClick={() => {
+        {/* {!onCreate ? (<div id="add_list" onClick={() => {
             setOnCreate(true)
             setListName("")
         }}><span>+ Add a list</span></div>) :
@@ -39,7 +40,7 @@ const CreateList = (props) => {
                     <button onClick={handleCreate}>Add list</button>
                     <span onClick={() => setOnCreate(false)}>x</span>
                 </div>
-            </div>}
+            </div>} */}
 
 
 
