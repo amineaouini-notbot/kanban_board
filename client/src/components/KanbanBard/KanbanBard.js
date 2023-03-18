@@ -15,7 +15,7 @@ const KanbanBoard = () => {
         .then(res=>{
             console.log(res)
             isRetrieved(true);
-            dispatch(reatrieveLists({lists: res.data}))
+            dispatch(reatrieveLists({lists: res.data, BIndex: lastOpened.index}))
         })
         .catch(err => {throw err});
     }

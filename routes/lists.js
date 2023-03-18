@@ -16,7 +16,6 @@ lists_router.get('/retrieve/:id', (req, res) => {
     db.query('SELECT id, name FROM lists WHERE boards_id = (?)', [id], // retrieve lists for opend board in front 
     (err, result)=>{
         if ( err ) throw err; // throw err in case one accures 
-        console.log(result.data)
         res.status(200).send(result); // send retrieved lists to front
     })
 })
