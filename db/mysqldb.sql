@@ -13,7 +13,7 @@ CREATE TABLE lists (
     id INT NOT NULL AUTO_INCREMENT,
     boards_id INT NOT NULL,
     name VARCHAR(255) NOT NULL,
-    index INT NOT NULL,
+    position INT(11) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (boards_id) REFERENCES boards(id)
 );
@@ -22,7 +22,7 @@ CREATE TABLE notes (
     id INT NOT NULL AUTO_INCREMENT,
     list_id INT NOT NULL,
     content TEXT NOT NULL,
-    index INT NOT NULL,
+    position INT(20) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (list_id) REFERENCES lists(id)
 );
