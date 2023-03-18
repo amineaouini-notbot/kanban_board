@@ -32,6 +32,7 @@ export const kanbanSlice = createSlice({
 
         },
         reatrieveLists: (state, action)=>{
+            console.log(action.payload.lists)
             state.boards[action.payload.BIndex].lists = action.payload.lists;
         },
         reorderLists: (state, action) => { // once drag and drop

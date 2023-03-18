@@ -11,11 +11,12 @@ lists_router.post('/create', (req, res)=>{
     })
 })
 
-lists_router.get('/retrieve', (req, res) => {
-    let {BId} = req.body;
-    db.query('SELECT id, name FROM lists WHERE boards_id = (?)', [BId], // retrieve lists for opend board in front 
+lists_router.get('/retrieve/:id', (req, res) => {
+    let {id} = req.params;
+    db.query('SELECT id, name FROM lists WHERE boards_id = (?)', [id], // retrieve lists for opend board in front 
     (err, result)=>{
         if ( err ) throw err; // throw err in case one accures 
+        console.log(result.data)
         res.status(200).send(result); // send retrieved lists to front
     })
 })
